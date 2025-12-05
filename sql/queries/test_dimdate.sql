@@ -1,19 +1,18 @@
 -- Test queries for Raptor.dbo.DimDate table via federated query
 
 -- 1. Check table structure and sample data
-SELECT TOP 10 *
-FROM raptor_external.dbo.DimDate
+-- Note: raptor_external maps to Raptor.dbo schema, so tables are directly accessible
+SELECT *
+FROM raptor_external.DimDate
 LIMIT 10;
 
 -- 2. Count total rows
 SELECT COUNT(*) as total_rows
-FROM raptor_external.dbo.DimDate;
+FROM raptor_external.DimDate;
 
--- 3. Get date range (adjust column names based on actual schema)
--- SELECT
---     MIN(date_key) as earliest_date,
---     MAX(date_key) as latest_date
--- FROM raptor_external.dbo.DimDate;
+-- 3. Get first and last rows to see date range
+SELECT * FROM raptor_external.DimDate ORDER BY 1 LIMIT 1;
+SELECT * FROM raptor_external.DimDate ORDER BY 1 DESC LIMIT 1;
 
 -- 4. Query for specific year/month
 -- SELECT *

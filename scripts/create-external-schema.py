@@ -69,7 +69,7 @@ def create_external_schema(conn):
     create_schema_sql = f"""
     CREATE EXTERNAL SCHEMA IF NOT EXISTS {schema_name}
     FROM SQLSERVER
-    DATABASE '{MSSQL_DATABASE}'
+    DATABASE '{MSSQL_DATABASE}' SCHEMA 'dbo'
     URI '{MSSQL_HOST}' PORT {MSSQL_PORT}
     IAM_ROLE '{REDSHIFT_IAM_ROLE_ARN}'
     SECRET_ARN '{MSSQL_SECRET_ARN}';

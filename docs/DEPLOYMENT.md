@@ -91,9 +91,10 @@ psql -h redshift-fed-prod-workgroup.459286107047.us-west-2.redshift-serverless.a
 
 ```sql
 -- Create external schema for MSSQL Raptor database
+-- Note: Must specify both DATABASE and SCHEMA for SQL Server
 CREATE EXTERNAL SCHEMA IF NOT EXISTS raptor_external
 FROM SQLSERVER
-DATABASE 'Raptor'
+DATABASE 'Raptor' SCHEMA 'dbo'
 URI 'LSNRGNP04A.ad.idelb.com' PORT 4070
 IAM_ROLE 'arn:aws:iam::459286107047:role/redshift-fed-prod-redshift-role'
 SECRET_ARN 'arn:aws:secretsmanager:us-west-2:459286107047:secret:gndataeng/prod/db-mssql/raptor/analytics-KfZGux';
