@@ -43,3 +43,19 @@ output "connection_info" {
     admin_secret  = module.redshift.admin_secret_arn
   }
 }
+
+# DMS Outputs
+output "dms_replication_instance_arn" {
+  description = "ARN of the DMS replication instance"
+  value       = module.dms.replication_instance_arn
+}
+
+output "dms_replication_task_arn" {
+  description = "ARN of the DMS replication task"
+  value       = module.dms.replication_task_arn
+}
+
+output "dms_s3_staging_bucket" {
+  description = "S3 bucket for DMS staging"
+  value       = module.dms.s3_staging_bucket
+}

@@ -112,3 +112,22 @@ variable "log_bucket_name" {
   type        = string
   default     = "gndataeng-redshift-logs-prod"
 }
+
+# DMS Configuration
+variable "dms_replication_instance_class" {
+  description = "DMS replication instance class"
+  type        = string
+  default     = "dms.t3.medium"
+}
+
+variable "dms_allocated_storage" {
+  description = "Allocated storage for DMS replication instance (GB)"
+  type        = number
+  default     = 100
+}
+
+variable "dms_multi_az" {
+  description = "Enable Multi-AZ for DMS replication instance"
+  type        = bool
+  default     = false
+}
